@@ -1,51 +1,63 @@
+// RegisterForm.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const RegisterForm = () => {
-  const [firstName, setFirstName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [registrationMessage, setRegistrationMessage] = useState('');
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
+  
     try {
-      // Realiza una solicitud POST al servidor para registrar al usuario usando Axios
-      const response = await axios.post('http://localhost:8000/blogs/register', {
-        firstName: firstName,
+      const response = await axios.post('http://localhost:8000/api/auth/register', {
+        name: name,
         email: email,
         password: password,
       });
-
-      if (response.status === 201) {
-        // Registro exitoso, puedes redirigir al usuario o hacer otra acción
+  
+      console.log(response);
+  
+      if (response.status === 200 || response.status === 201) {
+        // Registro exitoso
         console.log('Registro exitoso');
-        // Por ejemplo, puedes redirigir al usuario a la página de inicio de sesión
-        // Usando el enrutador de React-Router
-        navigate('/login'); // Asegúrate de importar useNavigate desde 'react-router-dom'
+        setRegistrationMessage('Registro exitoso. Te llegará un correo con un código.');
+  
+        // Puedes redirigir al usuario a la página de inicio de sesión aquí si es necesario
+        navigate('/login');
       } else {
-        // Manejar otros casos, como errores del servidor
+        // Error en el registro
         console.error('Error en el registro');
+        setRegistrationMessage('Error en el registro. Por favor, intenta de nuevo.');
       }
     } catch (error) {
-      // Manejar errores de la solicitud, por ejemplo, mostrar un mensaje de error al usuario
+      // Error en la solicitud de registro
       console.error('Error en la solicitud de registro:', error);
+  
+      // Analizar errores específicos y proporcionar mensajes detallados
+      if (error.response && error.response.status === 400) {
+        setRegistrationMessage('Error en los datos proporcionados. Asegúrate de que la información sea válida.');
+      } else {
+        setRegistrationMessage('Error en la solicitud de registro. Por favor, intenta de nuevo.');
+      }
     }
   };
 
   return (
     <div className="container">
-      <h3>Register</h3>
-      <form onSubmit={handleRegister} style={{ height: '600px' }}>
+      <h3>Registro</h3>
+      <form onSubmit={handleRegister}>
         <div className="mb-3">
           <label>Nombre</label>
           <input
             type="text"
             className="form-control"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -72,15 +84,18 @@ const RegisterForm = () => {
         <button type="submit" className="btn btn-primary">
           Register
         </button>
-      <p>
-        Ya tienes una cuenta? <Link to="/login">Login</Link>
-      </p>
       </form>
+      {registrationMessage && <div className="alert alert-info">{registrationMessage}</div>}
+      <p>
+        ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
+      </p>
     </div>
   );
 };
 
 export default RegisterForm;
+
+
 
 
 

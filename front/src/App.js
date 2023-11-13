@@ -7,8 +7,7 @@ import CompEditBlog from './blog/EditBlog';
 
 //importamos el router
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginForm from './blog/LoginUser';
-import RegisterForm from './blog/RegisterUser';
+
 import Navbar from './blog/NavBar';
 import Footer from './blog/FooTer';
 import HOMEPRODUCTOS from './blog/HomeBlog';
@@ -16,6 +15,9 @@ import Productos from './blog/ProducBlog';
 import CompShowProduct from './blog/ShowProduct';
 import CompCreateProduct from './blog/CreateProduct';
 import CompEditProduct from './blog/EditProduct';
+import RegisterForm from './blog/RegisterUser';
+import LoginForm from './blog/LoginUser';
+
 
 
 
@@ -35,8 +37,8 @@ function App() {
             <Route path='/desarrollador' element={ <CompShowBlogs />} />
             <Route path='/create' element={ <CompCreateBlog />} />
             <Route path='/edit/:id' element={ <CompEditBlog />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/register" element={<RegisterForm />} />
+            <Route path="/register" element={ <RegisterForm />} />
+            <Route path="/login" element={ <LoginForm /> } />
             <Route path='/cargadeproducto' element={ <CompShowProduct />} />
             <Route path='/createproduct' element={ <CompCreateProduct />} />
             <Route path='/editproduct/:id' element={ <CompEditProduct />} />

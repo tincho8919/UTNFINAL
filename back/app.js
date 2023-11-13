@@ -5,10 +5,10 @@ import db from "./database/db.js"
 //importamos nuestro enrutador
 import blogRoutes from './routes/routes.js'
 import ProductRouter from './routes/router.js'
+import authRoutes from './routes/authRoutes.js';
 
 
 const app = express()
-
 
 app.use(cors())
 app.use(express.json())
@@ -22,7 +22,7 @@ app.use('/Product', ProductRouter)
 
 
 
-
+app.use('/api/auth', authRoutes);
 
 
 app.listen(8000, ()=>{
