@@ -1,4 +1,4 @@
-// RegisterForm.js
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -25,10 +25,10 @@ const RegisterForm = () => {
       if (response.status === 200 || response.status === 201) {
         // Registro exitoso
         console.log('Registro exitoso');
-        setRegistrationMessage('Registro exitoso. Te llegará un correo con un código.');
+        setRegistrationMessage('Registro exitoso. Te llegará un correo con tus datos.');
   
         // Puedes redirigir al usuario a la página de inicio de sesión aquí si es necesario
-        navigate('/login');
+        navigate();
       } else {
         // Error en el registro
         console.error('Error en el registro');
