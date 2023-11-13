@@ -44,9 +44,9 @@ const LoginForm = () => {
 
 
   return (
-    <div className="container">
+    <div className="container" style={{ height: '600px' }}>
       <h3>Iniciar Sesión</h3>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} >
         <div className="mb-3">
           <label>Email</label>
           <input
