@@ -94,7 +94,7 @@ const sendConfirmationEmail = async (email, name) => {
     subject: 'Confirmación de Registro',
     html: `<div style="font-family: Arial, sans-serif; background-color: #f2f2f2; padding: 20px; text-align: center;">
     <h1 style="color: #0077b6;">¡Bienvenido a mi App!</h1>
-    <p style="font-size: 16px;">Gracias por registrarte, ${name}.</p>
+    <p style="font-size: 16px;">Gracias por registrarte,<h1>${name}</h1>.</p>
     <p style="font-size: 16px;">A partir de este momento, te encuentras registrado para recibir toda la información sobre nuestras actividades.</p>
     <h2 style="font-size: 16px;">¡Felicidades!</h2>
     <p style="font-size: 16px;">Te has registrado con los siguientes datos:</p>
