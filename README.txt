@@ -43,5 +43,5 @@ https://github.com/tincho8919/UTNFINAL.git
 
 *Finalutn : levata: npm run dev
 
-- concurrently
+- concurrently -D
 
