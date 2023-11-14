@@ -1,13 +1,11 @@
 
+//importamos el router
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 //importamos los componentes
 import CompShowBlogs from './blog/ShowBlogs';
 import CompCreateBlog from './blog/CreateBlog';
 import CompEditBlog from './blog/EditBlog';
-
-//importamos el router
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
 import Navbar from './blog/NavBar';
 import Footer from './blog/FooTer';
 import HOMEPRODUCTOS from './blog/HomeBlog';

@@ -5,7 +5,7 @@ import { register, login } from '../controllers/authController.js';
 
 const router = express.Router();
 
-// Rutas de autenticación
+// Rutas de formulario de Registro y Login
 router.post(
   '/register',
   [

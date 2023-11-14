@@ -54,13 +54,13 @@ const login = async (req, res) => {
     // Verificar si el usuario existe
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: 'Credenciales inválidas 1' });
+      return res.status(400).json({ msg: 'Credenciales inválidas' });
     }
 
     // Verificar la contraseña de manera segura
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ msg: 'Credenciales inválidas 2' });
+      return res.status(400).json({ msg: 'Credenciales inválidas' });
     }
 
     // Crear y devolver el token
@@ -83,13 +83,13 @@ const sendConfirmationEmail = async (email, name) => {
     port: 465,
     secure:true,
     auth: {
-        user: process.env.USEREMAIL, //'bernalpas@gmail.com', //process.env.USEREMAIL,
-        pass: process.env.PASSGMAIL //process.env.PASSEMAIL
+        user: process.env.USEREMAIL, //.env
+        pass: process.env.PASSGMAIL  //.env
     }
 });
 
   const mailOptions = {
-    from: process.env.USEREMAIL,
+    from: process.env.USEREMAIL, //.env
     to: email,
     subject: 'Confirmación de Registro',
     html: `<div style="font-family: Arial, sans-serif; background-color: #f2f2f2; padding: 20px; text-align: center;">

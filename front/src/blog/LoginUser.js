@@ -22,8 +22,7 @@ const LoginForm = () => {
         // Inicio de sesión exitoso
         console.log('Inicio de sesión exitoso');
         setLoginMessage('Inicio de sesión exitoso.');
-        // Guarda el token de sesión si tu backend lo proporciona
-        // Redirige al usuario a la página deseada
+        
       } else {
         // Credenciales inválidas
         console.error('Credenciales inválidas');
