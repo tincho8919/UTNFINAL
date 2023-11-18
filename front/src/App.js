@@ -15,6 +15,8 @@ import CompCreateProduct from './blog/CreateProduct';
 import CompEditProduct from './blog/EditProduct';
 import RegisterForm from './blog/RegisterUser';
 import LoginForm from './blog/LoginUser';
+import User from './blog/User';
+import MostrarUsuarios from './blog/showUser';
 
 
 
@@ -40,6 +42,8 @@ function App() {
             <Route path='/cargadeproducto' element={ <CompShowProduct />} />
             <Route path='/createproduct' element={ <CompCreateProduct />} />
             <Route path='/editproduct/:id' element={ <CompEditProduct />} />
+            <Route path='/User' element={ <User />} />
+            <Route path='/all-users' element={ <MostrarUsuarios />} />
 
         </Routes>
 

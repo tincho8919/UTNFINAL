@@ -47,6 +47,16 @@ const Navbar = () => {
                         </Link>
                     </Nav.Item>
                     <Nav.Item>
+                        <Link to="/all-users" className="nav-link text-center" onClick={handleNavItemClick}>
+                            USER
+                        </Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Link to="/User" className="nav-link text-center" onClick={handleNavItemClick}>
+                            USER MYD
+                        </Link>
+                    </Nav.Item>
+                    <Nav.Item>
                         <Link to="/cargadeproducto" className="nav-link text-center" onClick={handleNavItemClick}>
                             CARGA DE PRODUCTOS
                         </Link>

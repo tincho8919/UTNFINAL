@@ -104,5 +104,60 @@ const sendConfirmationEmail = async (email, name) => {
     };
     await transporter.sendMail(mailOptions);
 };
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({}, '_id name email');
+    res.status(200).json(users);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: 'Error en el servidor' });
+  }
+};
+
+export const updateUser = async (req, res) => {
+  try {
+    const updateFields = req.body;
+
+    const updatedUser = await User.findOneAndUpdate(
+      {}, 
+      updateFields,
+      { new: true, multi: true } 
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'Usuarios no encontrados' });
+    }
+
+    res.status(201).json({
+      message: '¡Usuarios actualizados correctamente!',
+      users: updatedUser,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+
+
+export const deleteUser = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    // Verificar si el usuario existe
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    // Eliminar el usuario
+    await User.findByIdAndRemove(id);
+
+    res.status(200).json({ message: '¡Usuario eliminado correctamente!' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 export { register, login };
