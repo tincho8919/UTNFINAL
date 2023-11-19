@@ -1,4 +1,3 @@
-// User.js
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
@@ -83,6 +82,8 @@ const User = () => {
 };
 
 export default User;
+
+
 
 
 

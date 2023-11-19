@@ -24,7 +24,7 @@ const CompShowProduct = () => {
 
 
   return (
-    <div className="container mt-4" style={{ height: 'auto' }}>
+    <div className="container mt-4" style={{ height: '600px' }}>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {products.map((product) => (
           <div key={product._id} className="col">
