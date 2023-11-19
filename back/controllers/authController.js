@@ -113,10 +113,16 @@ export const getAllUsers = async (req, res) => {
     res.status(500).json({ message: 'Error en el servidor' });
   }
 };
-
+const saltRounds = 10;
 export const updateUser = async (req, res) => {
   try {
     const updateFields = req.body;
+
+    
+    if (updateFields.password) {
+      const hashedPassword = await bcrypt.hash(updateFields.password, saltRounds);
+      updateFields.password = hashedPassword;
+    }
 
     const updatedUser = await User.findOneAndUpdate(
       {}, 
@@ -136,7 +142,6 @@ export const updateUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 
 
