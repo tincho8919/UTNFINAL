@@ -26,11 +26,13 @@ const User = () => {
   };
 
   const handleUpdateUser = () => {
-    axios.put(`http://localhost:8000/api/auth/update/${userId}`, {
+    const userData = {
       name,
       email,
       password,
-    })
+    };
+
+    axios.put(`http://localhost:8000/api/auth/update/${userId}`, userData)
       .then(response => {
         setMessage(response.data.message);
       })
