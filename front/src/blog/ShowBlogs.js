@@ -24,7 +24,7 @@ const CompShowBlogs = () => {
     return (
         <div className="container mt-4" style={{ height: '600px' }}>
             <Link to="/create" className="btn btn-primary mb-2">
-                <i className="fas fa-plus"></i> Add Blog
+                <i className="fas fa-plus"></i> Add
             </Link>
             <div className="table-responsive">
                 <table className="table table-striped">
