@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const URI = 'http://localhost:8000/blogs/';
 
 const CompShowBlogs = () => {
@@ -22,7 +23,7 @@ const CompShowBlogs = () => {
     };
 
     return (
-        <div className="container mt-4" style={{ height: '600px' }}>
+        <div className="container mt-4" style={{ minHeight: '80vh' }}>
             <Link to="/create" className="btn btn-primary mb-2">
                 <i className="fas fa-plus"></i> Add
             </Link>

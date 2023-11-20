@@ -48,7 +48,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="container" style={{ height: '600px' }}>
+    <div className="container" style={{ minHeight: '80vh' }}>
       <h3>Registro</h3>
       <form onSubmit={handleRegister}>
         <div className="mb-3">

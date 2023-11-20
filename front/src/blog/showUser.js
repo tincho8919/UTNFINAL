@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
 
+
+
+
 const MostrarUsuarios = () => {
   const [users, setUsers] = useState([]);
 
@@ -16,7 +19,7 @@ const MostrarUsuarios = () => {
   }, []);
 
   return (
-    <div className="container mt-4" style={{ height: '600px' }}>
+    <div className="container mt-4" style={{ minHeight: '80vh' }}>
       <h1 className="mb-4">Información de Usuarios</h1>
       <Table striped bordered hover responsive>
         <tbody>
@@ -39,6 +42,7 @@ const MostrarUsuarios = () => {
         </tbody>
       </Table>
     </div>
+    
   );
 };
 

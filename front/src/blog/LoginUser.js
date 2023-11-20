@@ -43,7 +43,7 @@ const LoginForm = () => {
 
 
   return (
-    <div className="container" style={{ height: '600px' }}>
+    <div className="container" style={{ minHeight: '80vh' }} >
       <h3>Iniciar Sesión</h3>
       <form onSubmit={handleLogin} >
         <div className="mb-3">

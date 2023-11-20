@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const URI = 'http://localhost:8000/blogs/';
 
 const CompCreateBlog = () => {
@@ -24,9 +25,9 @@ const CompCreateBlog = () => {
     };
 
     return (
-        <div>
+        <div style={{ minHeight: '80vh' }}>
             <h3>Create POST</h3>
-            <form onSubmit={store} style={{ height: '600px' }}>
+            <form onSubmit={store}>
                 <div className='mb-3'>
                     <label className='form-label'>Nombre</label>
                     <input

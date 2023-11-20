@@ -52,7 +52,7 @@ const User = () => {
   };
 
   return (
-    <div style={{ height: '600px' }}>
+    <div style={{ minHeight: '80vh' }}>
       <h1 className="mb-4">Actualizar o Eliminar Usuario</h1>
       <Form>
         <Form.Group controlId="userId">

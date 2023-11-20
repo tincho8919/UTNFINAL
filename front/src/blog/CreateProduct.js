@@ -24,9 +24,9 @@ const CompCreateProduct = () => {
     };
 
     return (
-        <div>
+        <div  style={{ minHeight: '80vh' }}> 
             <h3>Create POST</h3>
-            <form onSubmit={store} style={{ height: '600px' }}>
+            <form onSubmit={store} >
                 <div className='mb-3'>
                     <label className='form-label'>Nombre</label>
                     <input

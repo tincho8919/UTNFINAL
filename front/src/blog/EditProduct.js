@@ -38,9 +38,9 @@ const CompEditProduct = () => {
     };
 
     return (
-        <div>
+        <div style={{ minHeight: '80vh' }}>
             <h3>Edit POST</h3>
-            <form onSubmit={update} style={{ height: '600px' }}>
+            <form onSubmit={update} >
                 <div className="mb-3">
                     <label className="form-label">Nombre</label>
                     <input
