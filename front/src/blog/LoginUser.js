@@ -14,16 +14,16 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      // Realizar la solicitud al servidor para la autenticación
+      
       const response = await axios.post('http://localhost:8000/api/auth/login', {
         email,
         password,
       });
 
       if (response.status === 201) {
-        // Simulamos una respuesta exitosa para el ejemplo
+        
         setLoginMessage('Inicio de sesión exitoso.');
-        login(); // Llamamos a la función login del contexto
+        login(); 
         navigate('/ruta-protegida'); // Redirigir a una ruta protegida después del inicio de sesión
       } else {
         // Manejar el caso en que las credenciales son inválidas
