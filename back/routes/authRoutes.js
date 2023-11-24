@@ -22,27 +22,9 @@ router.post(
   [
     check('email', 'Por favor, ingrese un correo electrónico válido').isEmail(),
     check('password', 'La contraseña es obligatoria').exists(),
-  ],login
-  /* async (req, res) => {
-    try {
-      const { email, password } = req.body;
-      const user = { email, password };
-
-      const result = await isValidCredentials(user);
-
-      if (result.ok) {
-        req.session.user = user;
-        req.session.colorFavorito = 'black';
-        res.redirect('/home');
-      } else {
-        res.render('login', { error: result.message });
-      }
-    } catch (error) {
-      console.error(error.message);
-      res.status(500).send('Error en el servidor');
-    }
-    } */
-    );
+  ],
+  login
+  );
     
 router.get('/all-users', getAllUsers);
 router.put('/update/:id', updateUser);

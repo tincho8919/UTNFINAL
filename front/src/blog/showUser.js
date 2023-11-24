@@ -20,8 +20,7 @@ const MostrarUsuarios = () => {
 
   const handleLogout = () => {
     logout();
-    // Redirige a la página de inicio o cualquier otra página después de cerrar sesión
-    // Puedes utilizar el hook useNavigate() aquí o cualquier enfoque que prefieras
+    
   };
 
   return (

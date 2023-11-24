@@ -1,7 +1,7 @@
-// LoginForm.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import axios from 'axios';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -14,16 +14,24 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      console.log('Datos de inicio de sesión:', { email, password });
-      // Realizar la solicitud al servidor para la autenticación si es necesario
+      // Realizar la solicitud al servidor para la autenticación
+      const response = await axios.post('http://localhost:8000/api/auth/login', {
+        email,
+        password,
+      });
 
-      // Simulamos una respuesta exitosa para el ejemplo
-      setLoginMessage('Inicio de sesión exitoso.');
-      login(); // Llamamos a la función login del contexto
-      navigate('/ruta-protegida'); // Redirigir a una ruta protegida después del inicio de sesión
+      if (response.status === 201) {
+        // Simulamos una respuesta exitosa para el ejemplo
+        setLoginMessage('Inicio de sesión exitoso.');
+        login(); // Llamamos a la función login del contexto
+        navigate('/ruta-protegida'); // Redirigir a una ruta protegida después del inicio de sesión
+      } else {
+        // Manejar el caso en que las credenciales son inválidas
+        setLoginMessage('Credenciales inválidas. Por favor, verifica tu email y contraseña.');
+      }
     } catch (error) {
       console.error('Error en la solicitud de inicio de sesión:', error);
-      setLoginMessage('Credenciales inválidas. Por favor, verifica tu email y contraseña.');
+      setLoginMessage('Error en la solicitud de inicio de sesión. Inténtalo de nuevo más tarde.');
     } finally {
       setEmail('');
       setPassword('');
@@ -67,6 +75,11 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+
+
+
+
 
 
 
