@@ -2,8 +2,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 import nodemailer from 'nodemailer';
-import { name } from 'ejs';
-import User from '../models/User.js'; 
+import User from '../models/User.js';
+
 
 // Registro de usuario con envío de correo de confirmación
 const register = async (req, res) => {

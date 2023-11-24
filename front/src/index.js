@@ -5,10 +5,13 @@ import reportWebVitals from './reportWebVitals';
 
 //importamos bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { AuthProvider } from './blog/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+     <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

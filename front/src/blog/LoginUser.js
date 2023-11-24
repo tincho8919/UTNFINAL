@@ -1,51 +1,39 @@
+// LoginForm.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useAuth } from './AuthContext';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       console.log('Datos de inicio de sesión:', { email, password });
-      const response = await axios.post('http://localhost:8000/api/auth/login', {
-        email: email,
-        password: password,
-      });
+      // Realizar la solicitud al servidor para la autenticación si es necesario
 
-      if (response.status === 201) {
-        // Inicio de sesión exitoso
-        console.log('Inicio de sesión exitoso');
-        setLoginMessage('Inicio de sesión exitoso.');
-        
-      } else {
-        // Credenciales inválidas
-        console.error('Credenciales inválidas');
-        console.log();
-        setLoginMessage('Credenciales inválidas. Por favor, verifica tu email y contraseña.');
-      }
+      // Simulamos una respuesta exitosa para el ejemplo
+      setLoginMessage('Inicio de sesión exitoso.');
+      login(); // Llamamos a la función login del contexto
+      navigate('/ruta-protegida'); // Redirigir a una ruta protegida después del inicio de sesión
     } catch (error) {
-      // Error en la solicitud de inicio de sesión
       console.error('Error en la solicitud de inicio de sesión:', error);
-      setLoginMessage('Error en la solicitud de inicio de sesión. Por favor, intenta de nuevo.');
-    }finally {
-      // Limpiar los campos de entrada después de la acción
+      setLoginMessage('Credenciales inválidas. Por favor, verifica tu email y contraseña.');
+    } finally {
       setEmail('');
-      setPassword('');}
-    
+      setPassword('');
+    }
   };
 
-
-
   return (
-    <div className="container" style={{ minHeight: '80vh' }} >
+    <div className="container" style={{ minHeight: '80vh' }}>
       <h3>Iniciar Sesión</h3>
-      <form onSubmit={handleLogin} >
+      <form onSubmit={handleLogin}>
         <div className="mb-3">
           <label>Email</label>
           <input
@@ -79,6 +67,7 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
 
 
 

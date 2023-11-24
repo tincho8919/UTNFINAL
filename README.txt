@@ -1,6 +1,8 @@
 ALUMNO: MARTIN FINO
 DNI: 34697932
  
+GITHUB LINK : https://github.com/tincho8919/UTNFINAL.git
+
 BREVE EXPLICACION: Tiende tres data base en mongo db una se llama blog y la otra product e users
  hay tres crud una insertar empleados y la otra carga de productos y la otro carga usuarios
 fronten hecho en react con secciones totalmente responsive
@@ -30,7 +32,7 @@ la seccion user de la web se puede ver id , nombre y email del usuario
 "importante el id se puede ver en la misma web en user"
 
 
-GITHUB LINK : https://github.com/tincho8919/UTNFINAL.git
+
 
 -dependencias:en defecto se ven todas en los package.json:
 
@@ -44,6 +46,8 @@ GITHUB LINK : https://github.com/tincho8919/UTNFINAL.git
 - nodemailer
 - bcrypt
 - express-validator
+- cookie-parser
+- express-session
 - jsonwebtoken
 - nodemon -D
 

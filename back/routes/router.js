@@ -1,5 +1,6 @@
 import express from 'express'
 import { createProduct, deleteProduct, getAllProduct, getProduct, updateProduct } from '../controllers/ProductController.js'
+
 const routes = express.Router()
 
 routes.get('/', getAllProduct)
