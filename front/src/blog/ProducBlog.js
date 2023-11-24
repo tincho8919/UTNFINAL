@@ -14,9 +14,9 @@ const ProductCard = ({ nombre, imagen, precio, detalles }) => {
   };
 
   return (
-    <Col md={3} sm={6}>
-      <Card style={{ width: '18rem', margin: '10px' }}>
-        <Card.Img style={{ width: '200px', height: '200px' }} variant="top" src={imagen} alt={nombre} />
+    <Col xs={12} sm={6} md={4} lg={3}>
+      <Card style={{ width: '100%', margin: '10px' }}>
+        <Card.Img style={{ width: '100%', height: '200px', objectFit: 'cover' }} variant="top" src={imagen} alt={nombre} />
         <Card.Body>
           <Card.Title className='text-center'>{nombre}</Card.Title>
           <Card.Text className='text-center'>Precio: {precio}</Card.Text>
@@ -28,7 +28,7 @@ const ProductCard = ({ nombre, imagen, precio, detalles }) => {
               <p>Detalles: {detalles}</p>
             </div>
           )}
-          <div className="m-5 text-center">
+          <div className="m-3 text-center">
             <Button variant="success" onClick={toggleMensaje}>
               Comprar
             </Button>
@@ -46,62 +46,63 @@ const ProductCard = ({ nombre, imagen, precio, detalles }) => {
     </Col>
   );
 };
-const Productos = () => {
-    return (
-        <Container>
-          <Row>
-            <ProductCard
-              nombre="Mouse"
-              imagen="/artimagenes/1.jpeg"
-              precio="$20.99"
-              detalles="Totalmente flexible."
-            />
-            <ProductCard
-              nombre="Camara web"
-              imagen="/artimagenes/2.jpeg"
-              precio="$38.99"
-              detalles="deal gran calidad de grafica."
-            />
-            <ProductCard
-              nombre="Teclado"
-              imagen="/artimagenes/3.jpeg"
-              precio="$22.99"
-              detalles="Exelente con luz interna."
-            />
-            <ProductCard
-              nombre="Parlantes"
-              imagen="/artimagenes/4.jpeg"
-              precio="$40.99"
-              detalles="Sonido envolvente calidad alta."
-            />
-            <ProductCard
-              nombre="Audiculares"
-              imagen="/artimagenes/5.jpeg"
-              precio="$34.99"
-              detalles="Sonido fluido con microfono."
-            />
-            <ProductCard
-              nombre="Audiculares"
-              imagen="/artimagenes/6.jpeg"
-              precio="$37.99"
-              detalles="Exelente sonido con microfono."
-            />
-            <ProductCard
-              nombre="Teclado"
-              imagen="/artimagenes/7.jpeg"
-              precio="$19.99"
-              detalles="Teclas super flexibles."
-            />
-            <ProductCard
-              nombre="Parlantes"
-              imagen="/artimagenes/8.jpeg"
-              precio="$41.99"
-              detalles="Calidad de sonido de gamma alta."
-            />
-          </Row>
-        </Container>
-      );
-    };
 
+const Productos = () => {
+  return (
+    <Container>
+      <Row>
+        <ProductCard
+          nombre="Mouse"
+          imagen="/artimagenes/1.jpeg"
+          precio="$20.99"
+          detalles="Totalmente flexible."
+        />
+        <ProductCard
+          nombre="Camara web"
+          imagen="/artimagenes/2.jpeg"
+          precio="$38.99"
+          detalles="Ideal gran calidad de gráfica."
+        />
+        <ProductCard
+          nombre="Teclado"
+          imagen="/artimagenes/3.jpeg"
+          precio="$22.99"
+          detalles="Excelente con luz interna."
+        />
+        <ProductCard
+          nombre="Parlantes"
+          imagen="/artimagenes/4.jpeg"
+          precio="$40.99"
+          detalles="Sonido envolvente calidad alta."
+        />
+        <ProductCard
+          nombre="Audífonos"
+          imagen="/artimagenes/5.jpeg"
+          precio="$34.99"
+          detalles="Sonido fluido con micrófono."
+        />
+        <ProductCard
+          nombre="Audífonos"
+          imagen="/artimagenes/6.jpeg"
+          precio="$37.99"
+          detalles="Excelente sonido con micrófono."
+        />
+        <ProductCard
+          nombre="Teclado"
+          imagen="/artimagenes/7.jpeg"
+          precio="$19.99"
+          detalles="Teclas super flexibles."
+        />
+        <ProductCard
+          nombre="Parlantes"
+          imagen="/artimagenes/8.jpeg"
+          precio="$41.99"
+          detalles="Calidad de sonido de gamma alta."
+        />
+      </Row>
+    </Container>
+  );
+};
 
 export default Productos;
+
